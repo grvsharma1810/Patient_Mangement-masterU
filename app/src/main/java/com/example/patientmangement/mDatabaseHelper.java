@@ -2,6 +2,7 @@ package com.example.patientmangement;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -32,6 +33,15 @@ public class mDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         int i=db.delete("PATIENT_DETAILS", "NAME = ?", new String[]{name});
         return i;
+    }
+    public int Count_rows()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String count = "SELECT count(*) FROM PATIENT_DETAILS";
+        Cursor mcursor = db.rawQuery(count, null);
+        mcursor.moveToFirst();
+        int icount = mcursor.getInt(0);
+        return icount;
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) { }
