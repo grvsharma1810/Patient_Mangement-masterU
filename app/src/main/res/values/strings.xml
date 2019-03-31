@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PatientMangement</string>
+    <string name="app_name">Patient Tracker</string>
     <string name="title_activity_first">Settings</string>
 
     <!-- Strings related to Settings -->
